@@ -17,18 +17,26 @@ const gulp = require('gulp'),
   changed = require('gulp-changed'),
   parker = require('gulp-parker'),
   fontgen = require('gulp-fontgen'),
+  browserify = require('browserify'),
+  source = require('vinyl-source-stream'),
+  buffer = require('vinyl-buffer'),
+  hbsfy = require("hbsfy").configure({
+    extensions: ["html"]
+  }),
   browserSync = require('browser-sync').create();
 
-// Concatenate & Minify JS
+// Build javascript
 gulp.task('scripts', function () {
-  return gulp.src('src/js/*.js')
-    .pipe(concat('main.js'))
-    .pipe(rename({
-      suffix: '.min'
-    }))
+
+  return browserify('./src/js/app.js', {debug: true})
+    .transform(hbsfy)
+    .bundle()
+    .pipe(source('app.min.js'))
+    .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest('./'))
     .pipe(browserSync.stream());
+
 });
 
 // Handle styles
@@ -67,6 +75,7 @@ gulp.task('images', () => {
     .pipe(gulp.dest('img'));
 });
 
+// Generate webfonts
 gulp.task('font', function () {
   return gulp.src("./src/fonts/*.{ttf,otf}")
     .pipe(fontgen({
@@ -84,7 +93,7 @@ gulp.task('watch', function () {
   gulp.watch('*.html', browserSync.reload);
 
   // Watch .scss files
-  gulp.watch('src/style/*.scss', ['sass']);
+  gulp.watch('src/style/**/*.scss', ['sass']);
 
   // Watch images
   gulp.watch('src/img/*', ['images']);
@@ -121,3 +130,12 @@ function handlebarsErrorAlert(error) {
   console.log(error.toString()); //Prints Error to Console
   this.emit('end'); //End function
 };
+
+function handleErrors() {
+  var args = Array.prototype.slice.call(arguments);
+  notify.onError({
+    title: "Compile Error",
+    message: "<%= error %>"
+  }).apply(this, args);
+  this.emit('end'); // Keep gulp from hanging on this task
+}
