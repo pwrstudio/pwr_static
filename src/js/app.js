@@ -5,8 +5,8 @@
 
   "use strict";
   
-  var $      = require("jquery"),
-  global   = require("./global");
+  var $           = require("jquery"),
+      global      = require("./global");
 
   $(function () {
     console.log("ready!");

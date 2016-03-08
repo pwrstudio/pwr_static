@@ -1,34 +1,34 @@
 // Include gulp
-const gulp = require('gulp'),
-  concat = require('gulp-concat'),
-  uglify = require('gulp-uglify'),
-  autoprefixer = require('gulp-autoprefixer'),
-  rename = require('gulp-rename'),
-  plumber = require('gulp-plumber'),
-  cache = require('gulp-cache'),
-  cssnano = require('gulp-cssnano'),
-  handlebars = require('gulp-handlebars'),
-  sass = require('gulp-sass'),
-  wrap = require('gulp-wrap'),
-  declare = require('gulp-declare'),
-  notify = require('gulp-notify'),
-  imagemin = require('gulp-imagemin'),
-  pngquant = require('imagemin-pngquant'),
-  changed = require('gulp-changed'),
-  parker = require('gulp-parker'),
-  fontgen = require('gulp-fontgen'),
-  browserify = require('browserify'),
-  source = require('vinyl-source-stream'),
-  buffer = require('vinyl-buffer'),
-  hbsfy = require("hbsfy").configure({
-    extensions: ["html"]
-  }),
-  browserSync = require('browser-sync').create();
+const gulp            = require('gulp'),
+      concat          = require('gulp-concat'),
+      uglify          = require('gulp-uglify'),
+      autoprefixer    = require('gulp-autoprefixer'),
+      rename          = require('gulp-rename'),
+      plumber         = require('gulp-plumber'),
+      cache           = require('gulp-cache'),
+      cssnano         = require('gulp-cssnano'),
+      handlebars      = require('gulp-handlebars'),
+      sass            = require('gulp-sass'),
+      wrap            = require('gulp-wrap'),
+      declare         = require('gulp-declare'),
+      notify          = require('gulp-notify'),
+      imagemin        = require('gulp-imagemin'),
+      pngquant        = require('imagemin-pngquant'),
+      changed         = require('gulp-changed'),
+      parker          = require('gulp-parker'),
+      fontgen         = require('gulp-fontgen'),
+      browserify      = require('browserify'),
+      source          = require('vinyl-source-stream'),
+      buffer          = require('vinyl-buffer'),
+      hbsfy           = require("hbsfy").configure({extensions: ["html"]}),
+      browserSync     = require('browser-sync').create();
 
 // Build javascript
 gulp.task('scripts', function () {
 
-  return browserify('./src/js/app.js', {debug: true})
+  return browserify('./src/js/app.js', {
+      debug: true
+    })
     .transform(hbsfy)
     .bundle()
     .pipe(source('app.min.js'))
