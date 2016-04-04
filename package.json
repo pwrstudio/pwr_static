@@ -1,20 +1,18 @@
 {
-  "name": "pwr_wp_template",
+  "name": "pwr_static",
   "version": "1.0.0",
   "license": "MIT",
   "author": "PWR",
-  "description": "Template for wordpress development",
+  "description": "Template for static site",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pwrstudio/pwr_wp_template"
+    "url": "https://github.com/pwrstudio/pwr_static"
   },
   "devDependencies": {
     "browser-sync": "^2.10.0",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "0.0.6",
-    "gulp-cache": "~0.1.1",
     "gulp-changed": "^1.3.0",
-    "gulp-concat": "~2.1.7",
     "gulp-cssnano": "^2.1.0",
     "gulp-fontgen": "^0.1.6",
     "gulp-debug": "^2.0.1",
@@ -23,11 +21,10 @@
     "gulp-notify": "^2.2.0",
     "gulp-parker": "^0.1.4",
     "gulp-plumber": "^1.0.0",
-    "gulp-rename": "~0.2.2",
     "gulp-sass": "^2.1.0",
     "gulp-scss-lint": "^0.1.10",
+    "gulp-handlebars": "*",
     "gulp-uglify": "~0.2.0",
-    "gulp-wrap": "*",
     "imagemin-pngquant": "^4.2.0"
   },
   "dependencies": {
