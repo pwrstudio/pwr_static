@@ -3,6 +3,7 @@
     background: $main-color;
     color: $background-color;
   }
+  @include hide-scroll;
 }
 
 body {
@@ -24,5 +25,41 @@ a {
   }
   &:active {
     color: $main-color;
+  }
+}
+
+img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  filter: contrast(1.2);
+}
+
+.left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+
+}
+
+.right {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  height: 100vh;
+  width: 50%;
+}
+
+.video-container {
+  width: calc(100vw / 2);
+  height: calc(100vh / 2);
+  float: left;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
