@@ -8,3 +8,4 @@ cp -v ./app.min.js ../$NAME-$TIME-$NICK/
 cp -v ./style.css ../$NAME-$TIME-$NICK/
 rsync -av ./img/ ../$NAME-$TIME-$NICK/img
 rsync -av ./fonts/ ../$NAME-$TIME-$NICK/fonts
+open ..
