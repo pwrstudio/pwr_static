@@ -1,6 +1,3 @@
-/*jslint browser: true, devel: true, node: true, nomen: true, plusplus: true*/
-/*global $, jQuery*/
+const shared = {}
 
-var shared = {};
-
-module.exports = shared;
+module.exports = shared
