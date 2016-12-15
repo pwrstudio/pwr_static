@@ -43,6 +43,7 @@ Run build process:
 `gulp`
 
 Build for production (minify js/css - remove debug messages)
+
 `gulp --production`
 
 Spawn a child-theme for distribution with the build.sh script  
