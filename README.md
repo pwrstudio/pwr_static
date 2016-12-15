@@ -11,12 +11,11 @@
 #### Javascript
 - browserify
 - jquery
+- vue.js
 - uglify
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-#### Templating
-- handlebars
 
 #### Automatic reloading
 - browser-sync
@@ -42,6 +41,9 @@ Install dependencies:
 Run build process:
 
 `gulp`
+
+Build for production (minify js/css - remove debug messages)
+`gulp --production`
 
 Spawn a child-theme for distribution with the build.sh script  
 
